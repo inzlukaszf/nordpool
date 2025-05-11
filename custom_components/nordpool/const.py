@@ -9,7 +9,7 @@ EVENT_NEW_DAY = "nordpool_update_day"
 EVENT_NEW_PRICE = "nordpool_update_new_price"
 SENTINEL = object()
 
-_CURRENCY_LIST = ["DKK", "EUR", "NOK", "SEK"]
+_CURRENCY_LIST = ["DKK", "EUR", "NOK", "SEK", "PLN"]
 
 
 CONFIG_SCHEMA = vol.Schema({DOMAIN: vol.Schema({})}, extra=vol.ALLOW_EXTRA)
@@ -42,6 +42,7 @@ tzs = {
     "BE": "Europe/Brussels",
     "AT": "Europe/Vienna",
     "GER": "Europe/Berlin",
+    "PL": "Europe/Warsaw",
 }
 
 # List of page index for hourly data
@@ -124,11 +125,12 @@ _REGIONS = {
     "AT": ["EUR", "Austria", 0.20],
     # Unsure about tax rate, correct if wrong
     "GER": ["EUR", "Germany", 0.23],
+    "PL": ["PLN", "Poland", 0.195],
 }
 
 # Needed incase a user wants the prices in non local currency
-_CURRENCY_TO_LOCAL = {"DKK": "Kr", "NOK": "Kr", "SEK": "Kr", "EUR": "€"}
-_CURRENTY_TO_CENTS = {"DKK": "Øre", "NOK": "Øre", "SEK": "Öre", "EUR": "c"}
+_CURRENCY_TO_LOCAL = {"DKK": "Kr", "NOK": "Kr", "SEK": "Kr", "EUR": "€", "PLN": "zł",}
+_CURRENTY_TO_CENTS = {"DKK": "Øre", "NOK": "Øre", "SEK": "Öre", "EUR": "c", "PLN": "gr",}
 
 DEFAULT_CURRENCY = "NOK"
 DEFAULT_REGION = list(_REGIONS.keys())[0]
